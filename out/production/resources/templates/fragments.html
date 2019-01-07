@@ -32,7 +32,7 @@
         <table class="job-listing" th:each="job : ${jobs}">
             <tr th:each="thing : ${job}">
                 <th th:text="${#strings.capitalizeWords(thing.getKey())}"></th>
-                <td th:text="${thing.getValue()}"></td>
+                <td><a th:href="@{/search/results(searchType=${thing.getKey()}, searchTerm=${thing.getValue()})}"  th:text="${thing.getValue()}"></a></td>
             </tr>
         </table>
     </div>
